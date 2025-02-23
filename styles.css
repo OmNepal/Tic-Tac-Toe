@@ -36,6 +36,12 @@ body {
   border-color: rgb(113, 5, 119);
 }
 
+.game-result {
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+}
+
 .score-card {
   background-color: rgb(172, 172, 174);
   width: 175px;
