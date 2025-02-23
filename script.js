@@ -6,6 +6,9 @@ let score2 = 0;
 
       gridBoxArray.forEach((gridBox) => {
         gridBox.addEventListener("click", () => {
+          const gameResultElement = document.querySelector('.js-game-result')
+          gameResultElement.innerHTML = '';
+
           const gridBoxId = gridBox.dataset.gridBoxId;
           console.log(gridBoxId);
 
@@ -31,8 +34,15 @@ let score2 = 0;
             console.log(result)
 
             if (result) {
-              alert(`Player ${player} has won the game. Reset to play again.`)
+              gameResultElement.innerHTML = `Player ${player} Won The Game!!!`
+              if (player === 1) {
+                gameResultElement.style.backgroundColor = 'red'
+              } else {
+                gameResultElement.style.backgroundColor = 'green'
+              }
+              //alert(`Player ${player} has won the game. Reset to play again.`)
               updateScore(player);
+              resetGame();
             }
 
             /*
@@ -126,8 +136,13 @@ let score2 = 0;
         }
 
       document.querySelector('.js-reset-button').addEventListener('click', () => {
+        resetGame()
+      })
+
+      function resetGame() {
         gridBoxArray.forEach((gridBox) => {
           gridBox.innerHTML = '';
           gridBox.style.backgroundColor = 'white';
         })
-      })
+        
+      }
