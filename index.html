@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css">
+    <title>TIC TAC TOE</title>
+
+  </head>
+  <body>
+    <p class="header">Tic Tac Toe</p>
+    <div>
+      <p>Player 1: <span class="span-x">X </span> </p> 
+      <p>Player 2: <span class="span-o"> O</span></p> 
+    </div>
+
+    <div class="grid">
+      <button
+        class="grid-box js-grid-box js-grid-box-1_1"
+        data-grid-box-id="1_1"
+      ></button>
+      <button
+        class="grid-box js-grid-box js-grid-box-1_2"
+        data-grid-box-id="1_2"
+      ></button>
+      <button
+        class="grid-box js-grid-box js-grid-box-1_3"
+        data-grid-box-id="1_3"
+      ></button>
+      <button
+        class="grid-box js-grid-box js-grid-box-2_1"
+        data-grid-box-id="2_1"
+      ></button>
+      <button
+        class="grid-box js-grid-box js-grid-box-2_2"
+        data-grid-box-id="2_2"
+      ></button>
+      <button
+        class="grid-box js-grid-box js-grid-box-2_3"
+        data-grid-box-id="2_3"
+      ></button>
+      <button
+        class="grid-box js-grid-box js-grid-box-3_1"
+        data-grid-box-id="3_1"
+      ></button>
+      <button
+        class="grid-box js-grid-box js-grid-box-3_2"
+        data-grid-box-id="3_2"
+      ></button>
+      <button
+        class="grid-box js-grid-box js-grid-box-3_3"
+        data-grid-box-id="3_3"
+      ></button>
+    </div>
+
+    <p class="js-player-turn">Player 1's turn</p>
+
+    <div class="score-card">
+      <p>Scores: <div class="p1-score js-p1-score">Player 1: 0</div> <div class="p2-score js-p2-score">Player 2: 0</div></p>
+    </div>
+    
+
+    <button class="reset-button js-reset-button">Reset Game</button>
+
+    <script src="script.js"></script>
+  </body>
+</html>
