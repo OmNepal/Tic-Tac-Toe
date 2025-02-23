@@ -2,11 +2,17 @@ let player = 1;
 let score1 = 0;
 let score2 = 0;
 
+      const gameResultElement = document.querySelector('.js-game-result')
+
+      const playerTurnElement = document.querySelector('.js-player-turn')
+
+      const resetButtonElement = document.querySelector('.js-reset-button')
+
       const gridBoxArray = document.querySelectorAll(".js-grid-box");
 
       gridBoxArray.forEach((gridBox) => {
         gridBox.addEventListener("click", () => {
-          const gameResultElement = document.querySelector('.js-game-result')
+          
           gameResultElement.innerHTML = '';
 
           const gridBoxId = gridBox.dataset.gridBoxId;
@@ -34,15 +40,21 @@ let score2 = 0;
             console.log(result)
 
             if (result) {
-              gameResultElement.innerHTML = `Player ${player} Won The Game!!!`
-              if (player === 1) {
-                gameResultElement.style.color = 'red'
-              } else {
-                gameResultElement.style.color = 'green'
-              }
-              //alert(`Player ${player} has won the game. Reset to play again.`)
-              updateScore(player);
-              resetGame();
+                gameResultElement.innerHTML = `Player ${player} Won The Game!!!`
+  
+                if (player === 1) {
+                  gameResultElement.style.color = 'red'
+                } else {
+                  gameResultElement.style.color = 'green'
+                }
+                //alert(`Player ${player} has won the game. Reset to play again.`)
+                updateScore(player);
+
+                setTimeout(() => {
+                   resetGame();
+                },1500)
+               
+                player = 1;
             }
 
             /*
@@ -50,10 +62,13 @@ let score2 = 0;
               alert('Game already over. Please reset to play again')
             }
             */
+            if (!result) {
+              player === 1 ? (player = 2) : (player = 1);
+            }
+            
 
-            player === 1 ? (player = 2) : (player = 1);
+            playerTurnElement.innerHTML = `Player ${player}'s turn`
 
-            document.querySelector('.js-player-turn').innerHTML = `Player ${player}'s turn`
           }
         });
       });
@@ -135,7 +150,8 @@ let score2 = 0;
           
         }
 
-      document.querySelector('.js-reset-button').addEventListener('click', () => {
+      
+      resetButtonElement.addEventListener('click', () => {
         resetGame()
       })
 
@@ -143,6 +159,10 @@ let score2 = 0;
         gridBoxArray.forEach((gridBox) => {
           gridBox.innerHTML = '';
           gridBox.style.backgroundColor = 'white';
+          player = 1;
+          playerTurnElement.innerHTML = `Player ${player}'s turn`
+          gameResultElement.innerHTML = '';
+
         })
         
       }
