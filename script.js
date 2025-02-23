@@ -36,9 +36,9 @@ let score2 = 0;
             if (result) {
               gameResultElement.innerHTML = `Player ${player} Won The Game!!!`
               if (player === 1) {
-                gameResultElement.style.backgroundColor = 'red'
+                gameResultElement.style.color = 'red'
               } else {
-                gameResultElement.style.backgroundColor = 'green'
+                gameResultElement.style.color = 'green'
               }
               //alert(`Player ${player} has won the game. Reset to play again.`)
               updateScore(player);
