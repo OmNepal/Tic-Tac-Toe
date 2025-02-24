@@ -52,7 +52,7 @@ let score2 = 0;
 
                 setTimeout(() => {
                    resetGame();
-                },1500)
+                },5000)
                
                 player = 1;
             }
